@@ -1,5 +1,7 @@
-from django.http import HttpResponse
+
+from django.shortcuts import render
+from Webcheckfuel.apps.parsing.models import Train
 
 def index(request):
-    return HttpResponse('Тут будут результаты парсинга 5676')
-
+    messages = Train.objects.all()
+    return render(request, 'parsing/index.html', {'messages':messages})

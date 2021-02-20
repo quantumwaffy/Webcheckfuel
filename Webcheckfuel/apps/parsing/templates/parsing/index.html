@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages 5676</title>
+    <style>
+        td,th{
+            text-align:center;
+            border: 1px solid black;
+            margin: 0;
+        }
+        .button{
+            type: button;
+            border: 1px solid black;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <button>Send</button>
+    <h1>Messages in Database</h1>
+    <div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Number</th>
+                <th>Operation Station</th>
+                <th>Operation Code</th>
+                <th>Operation Date</th>
+                <th>Count of vagons</th>
+                <th>Count of heavy vagons</th>
+                <th>Count of light vagons</th>
+                <th>Locomotive Series </th>
+                <th>Locomotive Number</th>
+            </tr>
+    {% for msg in messages %}
+           <tr>
+               <td>{{ msg.ip }}</td>
+               <td>{{ msg.num }}</td>
+               <td>{{ msg.op_st }}</td>
+               <td>{{ msg.op_name }}</td>
+               <td>{{ msg.op_dt }}</td>
+               <td>{{ msg.vag_all }}</td>
+               <td>{{ msg.vag_h }}</td>
+               <td>{{ msg.vag_l }}</td>
+               <td>{{ msg.loc_ser }}</td>
+               <td>{{ msg.loc_num }}</td>
+           </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
