@@ -1,7 +1,7 @@
 from lxml import etree
 import os
 import sqlite3
-
+import datetime
 from Webcheckfuel.settings import BASE_DIR
 
 
@@ -32,14 +32,17 @@ class parsing5676(object):
                     else:
                         text = train.text
                     train_dict[train.tag] = text
-        self.inf = (train_dict['IPP'], train_dict['NP'],train_dict['KSO'],train_dict['KOP'],train_dict['DATOP'],train_dict['KLGP'],train_dict['KLGRVG'],train_dict['KLPRVG'],lok_dict['SER'],lok_dict['NS'])
+        parsdt = datetime.datetime.now()
+        datop = train_dict['DATOP'].split('-')
+        op_dt = datop[0]+'-'+datop[1]+'-'+datop[2]+' '+datop[3].split('.')[0]+':'+datop[3].split('.')[1]+':'+datop[3].split('.')[2]+'.'+datop[3].split('.')[3]
+        self.inf = (train_dict['IPP'], train_dict['NP'],train_dict['KSO'],train_dict['KOP'],op_dt,train_dict['KLGP'],train_dict['KLGRVG'],train_dict['KLPRVG'],lok_dict['SER'],lok_dict['NS'], parsdt)
 
     def gotosql(self):
         db_path = os.path.join(BASE_DIR, 'db.sqlite3')
         db  = sqlite3.connect(db_path)
         sql = db.cursor()
         print(db_path)
-        sql.execute("INSERT INTO parsing_train(ip, num, op_st, op_name, op_dt, vag_all, vag_h, vag_l, loc_ser, loc_num) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", self.inf)
+        sql.execute("INSERT INTO parsing_train(ip, num, op_st, op_name, op_dt, vag_all, vag_h, vag_l, loc_ser, loc_num, parse_dt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);", self.inf)
         db.commit()
         db.close()
 

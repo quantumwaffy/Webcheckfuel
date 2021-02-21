@@ -2,10 +2,14 @@ import os
 from lxml import etree
 import shutil
 
+
+
 class scan (object):
     params = {}
+
     def getparams(self):
-        with open('parsing5676.config') as f:
+        config = os.path.join(os.path.dirname(__file__), 'parsing5676.config')
+        with open(config) as f:
             config = f.read().encode('utf-8')
         parser = etree.XMLParser(ns_clean=True, recover=True, encoding='utf-8')
         root = etree.fromstring(config, parser=parser)

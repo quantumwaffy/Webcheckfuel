@@ -17,7 +17,10 @@
     </style>
 </head>
 <body>
-    <button>Send</button>
+    <form>
+        <input type = "submit" value = "Start parsing">
+    </form>
+
     <h1>Messages in Database</h1>
     <div>
         <table>
@@ -32,6 +35,7 @@
                 <th>Count of light vagons</th>
                 <th>Locomotive Series </th>
                 <th>Locomotive Number</th>
+                <th>DateTime of parsing</th>
             </tr>
     {% for msg in messages %}
            <tr>
@@ -45,6 +49,7 @@
                <td>{{ msg.vag_l }}</td>
                <td>{{ msg.loc_ser }}</td>
                <td>{{ msg.loc_num }}</td>
+               <td>{{ msg.parse_dt }}</td>
            </tr>
             {% endfor %}
         </table>
