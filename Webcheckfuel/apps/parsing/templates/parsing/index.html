@@ -3,28 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Messages 5676</title>
-    <style>
-        td,th{
-            text-align:center;
-            border: 1px solid black;
-            margin: 0;
-        }
-        .button{
-            type: button;
-            border: 1px solid black;
-            background-color: antiquewhite;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
 </head>
 <body>
-    <form>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <input type = "submit" value = "Start parsing">
     </form>
 
     <h1>Messages in Database</h1>
     <div>
-        <table>
-            <tr>
+    <table class="table table-dark table-hover">
+        <tr class="table-active">
                 <th>ID</th>
                 <th>Number</th>
                 <th>Operation Station</th>
@@ -52,7 +43,8 @@
                <td>{{ msg.parse_dt }}</td>
            </tr>
             {% endfor %}
-        </table>
+    </table>
     </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 </html>

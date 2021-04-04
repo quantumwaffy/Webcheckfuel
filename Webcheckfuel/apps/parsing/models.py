@@ -20,11 +20,12 @@ class Train (models.Model):
 
 
 class Locomotive (models.Model):
+    name = models.CharField(max_length=10, verbose_name= 'Name')
     f_crit = models.FloatField(verbose_name= 'Critical power, N')
     weight = models.FloatField(verbose_name= 'Weight, t')
     calc_speed = models.FloatField(verbose_name= 'Calculation speed, km / h')
     length = models.FloatField(verbose_name= 'Length, m')
-    type_loc_el = models.BooleanField(verbose_name= 'is the electric traction, km / h')
+    type_loc_el = models.BooleanField(verbose_name= 'is the electric traction')
 
     class Meta:
         verbose_name_plural = 'Locomotives'
