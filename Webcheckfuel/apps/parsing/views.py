@@ -5,7 +5,5 @@ from .main import main as go
 
 def index(request):
     messages = Train.objects.all()
-    if request.method =='POST':
-        go()
     return render(request, 'parsing/index.html', {'messages':messages})
 
