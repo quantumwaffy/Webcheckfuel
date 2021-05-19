@@ -15,6 +15,8 @@ import os, sys
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.urls import reverse_lazy
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(PROJECT_ROOT,'apps'))
@@ -29,7 +31,7 @@ SECRET_KEY = ')y8w*63c#t&k1*y148#ek4hk)a_q_c05betwnx+qsbh%vlf3jq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.100.5']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,7 +79,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Webcheckfuel.wsgi.application'
-
+LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

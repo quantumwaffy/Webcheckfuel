@@ -27,9 +27,13 @@ def startgetinf():
 #     tr.maketrainsql()
 # make()
 
-def main():
+# def main():
+#     startgetinf()
+# main()
+
+if __name__ == '__main__':
     startgetinf()
-main()
+
 
 # active = True
 # while active:
