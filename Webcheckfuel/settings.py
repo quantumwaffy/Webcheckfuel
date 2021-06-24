@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'parsing.apps.ParsingConfig',
-    'masscalc.apps.MasscalcConfig',
     'main.apps.MainConfig',
     'account.apps.AccountConfig',
 
