@@ -29,6 +29,9 @@ class Train(models.Model):
         auto_now_add=True, db_index=True, null=True, verbose_name="Parsing datetime"
     )
 
+    def __str__(self):
+        return self.num
+
     class Meta:
         verbose_name_plural = "Trains"
         verbose_name = "Train"
@@ -49,6 +52,9 @@ class Locomotive(models.Model):
         max_length=6, verbose_name="Locomotive number", null=True, blank=True
     )
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name_plural = "Locomotives"
         verbose_name = "Locomotive"
@@ -61,6 +67,9 @@ class Sector(models.Model):
     name = models.CharField(max_length=50, verbose_name="Sector name")
     number = models.IntegerField(verbose_name="Sector number", db_index=True)
     calcskew = models.FloatField(verbose_name="Calculation skew")
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name_plural = "Sectors"
