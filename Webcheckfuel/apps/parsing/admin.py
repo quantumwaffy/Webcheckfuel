@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Locomotive, Train
+from .models import Locomotive, Sector, Train
 
 
 class LocomotiveAdmin(admin.ModelAdmin):
@@ -25,5 +25,12 @@ class TrainAdmin(admin.ModelAdmin):
     search_fields = ("num", "op_st", "loc_num")
 
 
+class SectorAdmin(admin.ModelAdmin):
+    list_display = ("name", "number", "calcskew")
+    list_display_links = ("name", "number", "calcskew")
+    search_fields = ("name",)
+
+
+admin.site.register(Sector, SectorAdmin)
 admin.site.register(Train, TrainAdmin)
 admin.site.register(Locomotive, LocomotiveAdmin)
