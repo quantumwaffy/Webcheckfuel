@@ -62,7 +62,7 @@ class Locomotive(models.Model):
 
 class Sector(models.Model):
     train = models.ForeignKey(
-        Train, related_name="trains", on_delete=models.PROTECT, null=True, blank=True
+        Train, related_name="sectors", on_delete=models.PROTECT, null=True, blank=True
     )
     name = models.CharField(max_length=50, verbose_name="Sector name")
     number = models.IntegerField(verbose_name="Sector number", db_index=True)
