@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "poetry"
+version = "0.1.0"
+description = ""
+authors = ["django"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+asgiref="3.3.4"
+beautifulsoup4="4.9.3"
+Django="3.2.4"
+django-bootstrap4="3.0.1"
+lxml="4.6.3"
+pytz="2021.1"
+soupsieve="2.2.1"
+sqlparse="0.4.1"
