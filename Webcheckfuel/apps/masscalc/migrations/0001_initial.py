@@ -7,22 +7,32 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Sector',
+            name="Sector",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50, verbose_name='Sector name')),
-                ('number', models.IntegerField(db_index=True, verbose_name='Sector number')),
-                ('calcskew', models.FloatField(verbose_name='Calculation skew')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50, verbose_name="Sector name")),
+                (
+                    "number",
+                    models.IntegerField(db_index=True, verbose_name="Sector number"),
+                ),
+                ("calcskew", models.FloatField(verbose_name="Calculation skew")),
             ],
             options={
-                'verbose_name': 'Sector',
-                'verbose_name_plural': 'Sectors',
-                'ordering': ['-calcskew'],
+                "verbose_name": "Sector",
+                "verbose_name_plural": "Sectors",
+                "ordering": ["-calcskew"],
             },
         ),
     ]

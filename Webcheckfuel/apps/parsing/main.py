@@ -1,8 +1,11 @@
-from .parsexml import parsing5676 as ps
-from .scanfiles import scan as sc
 from time import sleep
 
+from .parsexml import parsing5676 as ps
+from .scanfiles import scan as sc
+
 dlist = []
+
+
 def startgetinf():
     scan = sc()
     for file in scan.checkfiles():
@@ -31,7 +34,7 @@ def startgetinf():
 #     startgetinf()
 # main()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     startgetinf()
 
 
@@ -39,21 +42,3 @@ if __name__ == '__main__':
 # while active:
 #     sleep(3)
 #     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

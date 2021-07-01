@@ -1,20 +1,20 @@
 import os
-from lxml import etree
 import shutil
 
+from lxml import etree
 
 
-class scan (object):
+class scan(object):
     params = {}
 
     def getparams(self):
-        config = os.path.join(os.path.dirname(__file__), 'parsing5676.config')
+        config = os.path.join(os.path.dirname(__file__), "parsing5676.config")
         with open(config) as f:
-            config = f.read().encode('utf-8')
-        parser = etree.XMLParser(ns_clean=True, recover=True, encoding='utf-8')
+            config = f.read().encode("utf-8")
+        parser = etree.XMLParser(ns_clean=True, recover=True, encoding="utf-8")
         root = etree.fromstring(config, parser=parser)
         for value in root.getchildren():
-            if value.tag =="PATH":
+            if value.tag == "PATH":
                 self.params[value.tag] = value.text
             if value.tag == "PATHCOPY":
                 self.params[value.tag] = value.text
@@ -25,13 +25,12 @@ class scan (object):
         self.getparams()
         dir_ = self.params["PATH"]
         for file in os.listdir(dir_):
-            path = os.path.join(dir_, file).replace('\\', '/')
+            path = os.path.join(dir_, file).replace("\\", "/")
             paths.append(path)
         return paths
 
     def movefiles(self, file):
         dircopy = self.params["PATHCOPY"]
-        dirwork = self.params["PATH"]
 
         if not os.path.exists(dircopy):
             os.mkdir(dircopy)
@@ -40,10 +39,5 @@ class scan (object):
             print("PATHCOPY exists")
             shutil.copy2(file, dircopy)
 
-
     def removefiles(self, file):
         os.remove(file)
-
-
-
-
