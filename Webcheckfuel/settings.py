@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "bootstrap4",
     "parsing.apps.ParsingConfig",
     "main.apps.MainConfig",
     "account.apps.AccountConfig",
