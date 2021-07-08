@@ -7,7 +7,7 @@ from lxml import etree
 from Webcheckfuel.settings import BASE_DIR
 
 
-class parsing5676(object):
+class parsing5676:
     def __init__(self):
         pass
 
@@ -70,7 +70,8 @@ class parsing5676(object):
         sql = db.cursor()
         print(db_path)
         sql.execute(
-            "INSERT INTO parsing_train(ip, num, op_st, op_name, op_dt, vag_all, vag_h, vag_l, loc_ser, loc_num, parse_dt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);",
+            "INSERT INTO parsing_train(ip, num, op_st, op_name, op_dt, vag_all, vag_h, "
+            "vag_l, loc_ser, loc_num, parse_dt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);",
             self.inf,
         )
         db.commit()

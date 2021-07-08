@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm, PasswordInput, TextInput
+from django.forms import PasswordInput, TextInput
 
 
 class LoginForm(forms.Form):
@@ -10,7 +10,5 @@ class LoginForm(forms.Form):
     class Meta:
         widgets = {
             "username": TextInput(attrs={"type": "text", "name": "name", "id": "name"}),
-            "password": PasswordInput(
-                attrs={"type": "password", "name": "pass", "id": "pass"}
-            ),
+            "password": PasswordInput(attrs={"type": "password", "name": "pass", "id": "pass"}),
         }

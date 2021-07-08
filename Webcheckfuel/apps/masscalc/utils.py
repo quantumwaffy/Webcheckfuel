@@ -6,6 +6,4 @@ class TrainMass:
 
     def __init__(self, train):
         self.train = train
-        self.max_skew = train.sectors.aggregate(max_skew=Max("calcskew")).get(
-            "max_skew"
-        )
+        self.max_skew = train.sectors.aggregate(max_skew=Max("calcskew")).get("max_skew")

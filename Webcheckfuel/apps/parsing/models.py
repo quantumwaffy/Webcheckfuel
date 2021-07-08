@@ -13,21 +13,13 @@ class Train(models.Model):
     num = models.CharField(max_length=6, verbose_name="Train Number")
     op_st = models.CharField(max_length=6, verbose_name="Station of Operation")
     op_name = models.CharField(max_length=6, verbose_name="Name of Operation")
-    op_dt = models.DateTimeField(
-        db_index=True, verbose_name="Time and Date of Operation"
-    )
+    op_dt = models.DateTimeField(db_index=True, verbose_name="Time and Date of Operation")
     vag_all = models.IntegerField(verbose_name="Count of all vagons")
     vag_h = models.IntegerField(verbose_name="Count of heavy vagons")
     vag_l = models.IntegerField(verbose_name="Count of light vagons")
-    loc_ser = models.CharField(
-        max_length=6, verbose_name="Locomotive series", null=True, blank=True
-    )
-    loc_num = models.CharField(
-        max_length=6, verbose_name="Locomotive number", null=True, blank=True
-    )
-    parse_dt = models.DateTimeField(
-        auto_now_add=True, db_index=True, null=True, verbose_name="Parsing datetime"
-    )
+    loc_ser = models.CharField(max_length=6, verbose_name="Locomotive series", null=True, blank=True)
+    loc_num = models.CharField(max_length=6, verbose_name="Locomotive number", null=True, blank=True)
+    parse_dt = models.DateTimeField(auto_now_add=True, db_index=True, null=True, verbose_name="Parsing datetime")
 
     def __str__(self):
         return self.num
@@ -45,12 +37,8 @@ class Locomotive(models.Model):
     calc_speed = models.FloatField(verbose_name="Calculation speed, km / h")
     length = models.FloatField(verbose_name="Length, m")
     type_loc_el = models.BooleanField(verbose_name="electric")
-    loc_ser = models.CharField(
-        max_length=6, verbose_name="Locomotive series", null=True, blank=True
-    )
-    loc_num = models.CharField(
-        max_length=6, verbose_name="Locomotive number", null=True, blank=True
-    )
+    loc_ser = models.CharField(max_length=6, verbose_name="Locomotive series", null=True, blank=True)
+    loc_num = models.CharField(max_length=6, verbose_name="Locomotive number", null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -61,9 +49,7 @@ class Locomotive(models.Model):
 
 
 class Sector(models.Model):
-    train = models.ForeignKey(
-        Train, related_name="sectors", on_delete=models.PROTECT, null=True, blank=True
-    )
+    train = models.ForeignKey(Train, related_name="sectors", on_delete=models.PROTECT, null=True, blank=True)
     name = models.CharField(max_length=50, verbose_name="Sector name")
     number = models.IntegerField(verbose_name="Sector number", db_index=True)
     calcskew = models.FloatField(verbose_name="Calculation skew")

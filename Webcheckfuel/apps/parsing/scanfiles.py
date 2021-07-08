@@ -4,7 +4,7 @@ import shutil
 from lxml import etree
 
 
-class scan(object):
+class scan:
     params = {}
 
     def getparams(self):

@@ -4,8 +4,6 @@ from django.shortcuts import render
 
 from Webcheckfuel.apps.parsing.models import Train
 
-from .main import startgetinf as get
-
 
 @login_required
 def index(request):

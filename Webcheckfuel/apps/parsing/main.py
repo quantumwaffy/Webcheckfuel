@@ -1,5 +1,3 @@
-from time import sleep
-
 from .parsexml import parsing5676 as ps
 from .scanfiles import scan as sc
 
