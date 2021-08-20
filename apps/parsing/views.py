@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from django.shortcuts import render
 
+from apps.parsing.forms import UploadedFileForm
 from apps.parsing.models import Train
 
 
@@ -18,4 +19,6 @@ def index(request):
 
 
 def upload(request):
-    pass
+    form_uploaded_files = UploadedFileForm()
+
+    return render(request, "parsing/upload_file_form.html", locals())
