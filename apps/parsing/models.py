@@ -61,3 +61,9 @@ class Sector(models.Model):
         verbose_name_plural = "Sectors"
         verbose_name = "Sector"
         ordering = ["-calcskew"]
+
+
+class UploadedFile(models.Model):
+    file = models.FileField(upload_to="media/uploaded_files", verbose_name="Files")
+    name = models.CharField(max_length=255, verbose_name="File name")
+    uploaded_at = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name="Uploaded datetime")
