@@ -4,7 +4,7 @@ from django.db import models
 class Train(models.Model):
     locomotive = models.ForeignKey(
         "Locomotive",
-        related_name="locomotives",
+        related_name="trains",
         on_delete=models.PROTECT,
         null=True,
         blank=True,
