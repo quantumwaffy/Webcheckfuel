@@ -19,9 +19,9 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path("", include("account.urls"), name="home_page"),
-    path("main/", include("main.urls")),
+    path("", include("apps.account.urls"), name="home_page"),
+    path("main/", include("apps.main.urls")),
     path("admin/", admin.site.urls),
-    path("parsing/", include("parsing.urls")),
-    path("masscalc/", include("masscalc.urls")),
+    path("parsing/", include("apps.parsing.urls")),
+    path("masscalc/", include("apps.masscalc.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
